@@ -1,0 +1,63 @@
+\documentclass[25pt,
+               a0paper,
+               portraitmargin = 0mm,
+               margin = 0mm,
+               innermargin = 50mm,
+               blockverticalspace = 15mm,
+               colspace = 40mm,
+               subcolspace = 8mm]
+               {tikzposter}
+
+\usepackage[utf8]{inputenc}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{subfiles}
+\usepackage{url}
+\usepackage{listings}
+\usetikzlibrary{positioning, calc}
+
+\input{subfiles/brsu_poster_config}
+\input{subfiles/poster_title}
+
+\begin{document}
+    \maketitle[width=0.88\textwidth]
+    \input{subfiles/layout}
+
+    \begin{columns}
+        \column{0.5}
+        \subfile{subfiles/section1}
+
+        \column{0.5}
+        \subfile{subfiles/section2}
+    \end{columns}
+
+    \begin{columns}
+        \column{0.5}
+        \subfile{subfiles/section3}
+
+        \column{0.5}
+        \subfile{subfiles/section4}
+    \end{columns}
+
+    \block{References}
+    {
+        \small
+        \begingroup
+            \nocite{*}
+            \renewcommand\refname{\vskip -2cm}
+            \bibliography{references}
+            \bibliographystyle{unsrt}
+        \endgroup
+    }
+
+    \begin{columns}
+        \column{0.5}
+        \subfile{subfiles/acknowledgements}
+
+        \column{0.5}
+        \subfile{subfiles/contact}
+
+    \end{columns}
+
+    \subfile{subfiles/footer}
+\end{document}
